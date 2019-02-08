@@ -1,4 +1,5 @@
-from django_extensions import TimeStampedModel
+from django_extensions.db.models import TimeStampedModel
+from simple_history.models import HistoricalRecords
 
 from django.db import models
 from django.utils.module_loading import import_string
