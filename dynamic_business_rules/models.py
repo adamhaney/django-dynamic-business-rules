@@ -1,11 +1,27 @@
+from django_extensions import TimeStampedModel
+
 from django.db import models
 from django.utils.module_loading import import_string
 from django.contrib.postgres.fields import JSONField
 
-from apps.devops.models import BaseModel
+
+class BaseModel(TimeStampedModel):
+    """
+    By default all models should have timestamp info and history
+    """
+    class Meta:
+        abstract = True
+
+    history = HistoricalRecords(inherit=True)
 
 
 class BusinessRuleSet(BaseModel):
+    """
+    A collection of rules that are evaluated in order, if
+    stop_on_first_trigger is true the rule set will short circuit as
+    soon as the first rule set evaluates to true, otherwise all rules
+    in the rule set will be evaluated.
+    """
     enabled = models.BooleanField(
         default=False,
         help_text="Should this rule set execute?"
