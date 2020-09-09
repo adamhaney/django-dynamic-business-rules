@@ -7,5 +7,5 @@ class DynamicBusinessRulesConfig(AppConfig):
     def ready(self):
         from .models import BusinessRuleSet
 
-        for ruleset in BusinessRuleSet.objects.all:
+        for ruleset in BusinessRuleSet.objects.all():
             ruleset.signal_object.connect(ruleset.signal_callback)
