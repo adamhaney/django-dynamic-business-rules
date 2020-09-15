@@ -1,4 +1,5 @@
-from django_extensions import TimeStampedModel
+from django_extensions.db.models import TimeStampedModel
+from simple_history.models import HistoricalRecords
 
 from django.db import models
 from django.utils.module_loading import import_string
@@ -170,7 +171,7 @@ class Condition(BaseModel):
     group = models.ForeignKey(
         ConditionSet,
         on_delete=models.CASCADE,
-        related_name='comditions'
+        related_name='conditions'
     )
     property_method = models.CharField(
         max_length=140,

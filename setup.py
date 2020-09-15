@@ -56,7 +56,7 @@ setup(
         'dynamic_business_rules',
     ],
     include_package_data=True,
-    install_requires=["django-model-utils>=2.0",],
+    install_requires=["django-model-utils>=2.0", "django-extensions==2.1.0"],
     license="MIT",
     zip_safe=False,
     keywords='django-dynamic-business-rules',
