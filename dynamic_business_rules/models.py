@@ -171,7 +171,7 @@ class Condition(BaseModel):
     group = models.ForeignKey(
         ConditionSet,
         on_delete=models.CASCADE,
-        related_name='comditions'
+        related_name='conditions'
     )
     property_method = models.CharField(
         max_length=140,
